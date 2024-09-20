@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login WorldCup</title>
+</head>
+<body>
+<div class="wrapper">
+    <form method="post">
+        <h2>Iniciar Sesión</h2>
+        {% csrf_token %}
+        <div class="input-box">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </div>
+    
+        <div class="input-box">
+            <label for="id_password">Password:</label>
+            {{ form.password }}
+        </div>
+
+        <div class="register-link">
+            <p>¿No tiene cuenta? <a href="">Regístrese</a></p>
+        </div>
+        <button type="submit" class="btn">Ingresar</button>
+    </form>
+</div>
+</body>
+</html>

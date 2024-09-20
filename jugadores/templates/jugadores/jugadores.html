@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+    <title>Jugadores del Equipo</title>
+    <link rel="stylesheet" href="{% static 'css/jugadores.css' %}">
+</head>
+<body>
+    <header>
+        <div class="barra_navegacion">
+            <nav class="nav">
+                <div class="name_user_welcome">
+                    <h2>Jugadores</h2>
+                </div>
+                <div class="navegacion_menu">
+                    <ul>
+                        <li><a href="{% url 'listado_continentes'%}" class="link">equipos</a></li>
+                        <li><a href="{% url 'logout' %}" class="link">Cerrar Session</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+<div class="container">
+    <h1>Jugadores de {{ equipo.nombre }}</h1>
+    <ul>
+        <li>
+            <h1>Nombre</h1>
+            <h1>Apellido</h1>
+            <h1>N camiseta</h1>
+            <h1>Foto</h1>
+        </li>
+        {% for players in player %}
+            <li>
+                <h2>{{ players.nombre }}</h2>
+                <h2>{{ players.apellido }} </h2>
+                <h2>{{ players.numero_camiseta }}</h2>
+                <img src="{{ players.foto.url }}" alt="Bandera de {{ players.foto }}"/>
+
+
+            </li>
+        {% empty %}
+            <li>No hay jugadores en esta posición para el equipo seleccionado.</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

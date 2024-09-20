@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/listadoContinentes.css' %}">
+    <title>Continentes</title>
+</head>
+<body>
+    <header>
+        <div class="barra_navegacion">
+            <nav class="nav">
+                <div class="name_user_welcome">
+                    <h2>Equipos</h2>
+                </div>
+                <div class="navegacion_menu">
+                    <ul>
+                        <li><a href="{% url 'listado_equipos' %}" class="link">Jugadores</a></li>
+                        <li><a href="{% url 'logout' %}" class="link">Cerrar Session</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+    <h1>Categorias de equipos por continente</h1>
+        <ul>
+            {% for continente in continentes %}
+                <li>
+                 <a href="{% url 'equipos_por_continente' continente.id %}">{{ continente.nombre }}</a>
+             </li>
+            {% empty %}
+                <li>No hay continentes disponibles.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

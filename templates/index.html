@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <title>INDEX</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Copa Mundial 2026</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}" class="link">Iniciar Sesión</a></li>
+                <li><a href="{% url 'registro' %}" class="link">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

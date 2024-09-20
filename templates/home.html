@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <title>HOME</title>
+</head>
+<body>
+    <header>
+        <div class="barra_navegacion">
+            <nav class="nav">
+                <div class="name_user_welcome">
+                    <h2>Bienvenido {{user.username}}</h2>
+                </div>
+                <div class="navegacion_menu">
+                    <ul>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <li><a type="submit" class="link">Cerrar Sesión</a></li>
+                        </form>
+                            <li><a href="{% url 'listado_continentes' %}" class="link">Equipos</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
